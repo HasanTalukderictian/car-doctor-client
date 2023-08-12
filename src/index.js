@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  
+  RouterProvider,
+} from "react-router-dom";
+import router from './Routes/Routes';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
+ <div className='max-w-7xl mx-auto'>
+   <React.StrictMode>
+  <RouterProvider router={router} />
   </React.StrictMode>
+ </div>
 );
 
 // If you want to start measuring performance in your app, pass a function
