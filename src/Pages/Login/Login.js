@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import img from '../../assets/images/login/login.svg'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import SocialLogin from '../Shared/SocialLogin';
 
 const Login = () => {
 
@@ -26,6 +27,7 @@ const Login = () => {
                 email: user.email
             }
             console.log(loggedUser);
+            navigate(from, {replace:true})
             //navigate(from, {replace:true})
 
             fetch(`http://localhost:5000/jwt`,{
@@ -40,7 +42,7 @@ const Login = () => {
             // local storage is the not best place(second best Place to store Token)
             localStorage.setItem('car-access-token', data.token)
          
-            navigate(from, {replace:true})
+           
         });
 
             
@@ -85,6 +87,7 @@ const Login = () => {
                         </div>
                         </form>
                         <p className='my-4 text-center'>New to Car Doctors <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link></p>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>
